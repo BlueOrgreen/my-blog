@@ -1,0 +1,98 @@
+/* ------- logo ------- */
+#logocontent {
+    .logo_name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1.2rem;
+        position: relative;
+        user-select: none;
+    }
+    // 图片
+    img {
+        width: 4rem;
+        height: 4rem;
+        margin-top: -1rem;
+        user-select: none; // 防止选取文本
+        opacity: 0.9;
+    }
+    // 图片左右边的面包屑和搜索框
+    .meun,
+    .search {
+        position: absolute;
+        font-size: 1.6rem;
+        cursor: pointer;
+        color: white;
+        &:hover {
+            color: rgb(100,177,240);
+        }
+    }
+    .meun {
+        left: 1.5rem;
+    }
+    .search {
+        right: 2rem;
+    }
+    .hiddenMoon {
+        visibility: hidden;
+    }
+}
+
+/* -------- TabbarLink 导航条 --------- */
+#TabbarLink {
+    width: 100%;
+    height: 100%;
+    /* ------- 夜晚模式 TabbarLink ------- */
+    .nightTabbarLink {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        a {
+            font-family: '微软雅黑';
+            color: #f2f2f2;
+            margin: 0 1rem;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.5s;
+            &:hover {
+                background: #222;
+                border-radius: 5px;
+                color: rgb(100,177,240);
+            }
+        }
+        span {
+            margin-left: 0.7rem;
+        }
+    }
+    /* ---------- 白天模式 TabbarLink ------- */
+    .moonTabbarLink {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        a {
+            font-family: '微软雅黑';
+            color: #4a5057;
+            font-size: 16px;
+            margin: 0px 1rem;
+            font-weight: 600;
+            transition: all 0.5s;
+            &:hover {
+                background: #ccc;
+                border-radius: 5px;
+                color: rgb(100,177,240);
+            }
+        }
+        span {
+            margin-left: 0.7rem;
+        }
+    }
+}
+
+.nightDisplay {
+    color: #4a5057;
+    font-size: 16px;
+    margin: 0px 15px;
+    font-weight: 600;
+}

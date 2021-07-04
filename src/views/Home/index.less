@@ -1,0 +1,219 @@
+#home {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        &.nightHome {
+            color: #fff;
+        }
+        &.moonHome {
+            color: #4a5057;;
+        }
+    }
+    /* --------  wrapper 中心盒子   --------- */
+    .wrapper {
+        position: relative;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.25rem;
+        padding: 0.5rem;
+        /* -------- wrapper盒子中的中心线   -------- */
+        .slash {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0.18rem;
+            height: 165%;
+            animation: slash 6s ease-in-out infinite;
+        }
+        .slash:before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 0.55rem;
+            height: 120%;
+            background: #fff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        .slash:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 110%;
+            background: #000;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        /* -------- wrapper盒子中的四周线   -------- */
+        .sides {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            /* ---------  夜间模式的四周线  ----------- */
+            &.nightHome{
+                .side {
+                    background: #fff;
+                }
+            }
+            /* ---------  白天模式的四周线  ----------- */
+            &.moonHome{
+                .side {
+                    background:#4a5057;
+                }
+            }
+        }
+        .sides .side {
+            position: absolute;
+        }
+        /* --------  上边线  ------- */
+        .sides .side:nth-child(1) {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0.18rem;
+            transform: translateX(-101%);
+            animation: side-top ease 6s infinite;
+        }
+        /* -------  右边线  ------ */
+        .sides .side:nth-child(2) {
+            top: 0;
+            right: 0;
+            width: 0.18rem;
+            height: 100%;
+            transform: translateY(-101%);
+            animation: side-right ease 6s infinite;
+        }
+        /* -------  下边线  ------ */
+        .sides .side:nth-child(3) {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0.18rem;
+            transform: translateX(101%);
+            animation: side-bottom ease 6s infinite;
+        }
+        /* -------  左边线  ------ */
+        .sides .side:nth-child(4) {
+            top: 0;
+            left: 0;
+            width: 0.18rem;
+            height: 100%;
+            transform: translateY(101%);
+            animation: side-left 6s ease infinite;
+        }
+    }
+    /* --------  navigation 导航条  --------- */
+    .navigation {
+        width: 500px;
+        height: 140px;
+        background: lightblue;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .btn {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #f2f2f2;
+            box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.35);
+		    cursor: pointer;
+        }
+    }
+}
+
+@keyframes slash {
+    0% {
+        transform: translate(-50%, -50%) rotate(-24deg) scaleY(0);
+    }
+    6% {
+        transform: translate(-50%, -50%) rotate(-24deg) scaleY(1);
+    }
+    45% {
+        transform: translate(-50%, -50%) rotate(-24deg) scaleY(1);
+    }
+    55% {
+        transform: translate(-50%, -50%) rotate(-24deg) scaleY(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(-24deg) scaleY(0);
+    }
+}
+
+@keyframes side-top {
+    0%, 14%{
+        transform: translateX(-101%);
+    }
+    24%, 45% {
+        transform: translateX(0);
+    }
+    55% {
+        transform: translateX(101%);
+    }
+    100%{
+        transform: translateX(101%);
+    }
+}
+
+@keyframes side-right {
+    0%, 14%, 23% {
+        transform: translateY(-101%);
+    }
+    30%, 52% {
+        transform: translateY(0);
+    }
+    64% {
+        transform: translateY(101%);
+    }
+    100% {
+        transform: translateY(101%);
+    }
+}
+
+@keyframes side-bottom {
+    0%, 30% {
+        transform: translateX(101%);
+    }
+    40%, 62% {
+        transform: translateX(0);
+    }
+    70% {
+        transform: translateX(-101%);
+    }
+    100% {
+        transform: translateX(-101%);
+    }
+}
+
+@keyframes side-left {
+    0%, 38% {
+        transform: translateY(101%);
+    }
+    47%, 68% {
+        transform: translateY(0);
+    }
+    76% {
+        transform: translateY(-101%);
+    }
+    100% {
+        transform: translateY(-101%);
+    }
+}

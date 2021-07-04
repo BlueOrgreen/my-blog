@@ -1,0 +1,119 @@
+#lampadario {
+    position: fixed;
+    left: 5%;
+    top: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#filo {
+    position: relative;
+    background-color: #000000;
+    width: 3px;
+    height: 100px;
+    margin-left: -1px;
+    z-index: 99;
+    transform-origin: 0% 0%;
+    animation: oscillaFilo .9s ease-in-out 0s infinite alternate;
+}
+
+#filo:after {
+    content: ' ';
+    left: -3px;
+    top: 99%;
+    position: absolute;
+    border-bottom: 15px solid #000000;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    height: 0;
+    width: 1px;
+}
+
+input {
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    margin-left: -30px !important;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+// 通过选中后位置上移，另外一个下移动来切换input框
+input[value="on"] {
+    top: 110px;
+}
+
+input[value="off"] {
+    top: -110px;
+}
+
+input[value="on"]:checked {
+    top: -110px;
+}
+
+input[value="on"]:checked + input[value="off"] {
+    top: 110px;
+}
+
+label {
+    width: 51px;
+    height: 51px;
+    top: 114px;
+    position: absolute;
+    margin-left: -25px;
+    border-radius: 100%;
+    animation: oscillaLampadina 0.9s ease-in-out 0s infinite alternate;
+}
+
+// >（子选择器）
+// +（相邻选择器）而且二者有相同的父元素。只会选择第一个相邻的匹配元素
+// #b~p，匹配所有在#b元素之后的同级p元素
+// 夜晚（night）
+input[value="off"]:checked ~ label {
+    background: rgba(223,223,223,0.7);
+    -webkit-box-shadow: inset 0px 1px 5px rgba(255,255,255,.5),
+        inset 0px 2px 20px rgba(255,255,255,.1),
+        -80px -15px 15px -5px rgba(0,0,0,.1);
+    box-shadow: inset 0px 1px 5px rgba(255,255,255,.5),
+        inset 0px 2px 20px rgba(255,255,255,.1),
+        -80px -15px 15px -5px rgba(0,0,0,.1);
+}
+
+input[value="off"]:checked ~ label:after {
+    content: ' ';
+    width: 15px;
+    height: 15px;
+    top: 0;
+    position: absolute;
+    left: 0;
+    margin-left: 15px;
+    border-radius: 100%;
+    border: 2px solid rgba(255,255,255,0.03);
+}
+
+input[value="on"]:checked ~ label {
+    background: rgba(255,227,66,0.7);
+    box-shadow: 0px 0px 10px rgba(255,227,66,0.8),
+        0px 0px 30px rgba(255,227,66,.8),
+        0px 0px 50px rgba(255,227,66,0.6),
+        0px 0px 70px rgba(255,227,66,.6),
+        -80px -15px 100px 0px rgba(255,227,66,0.4);
+}
+
+@keyframes oscillaFilo {
+    from {
+        transform: rotate(7deg);
+    }
+    to {
+        transform: rotate(-7deg);
+    }
+}
+
+@keyframes oscillaLampadina {
+    from {
+        transform: translate(-16px, -1px);
+    }
+    to {
+        transform: translate(16px, -1px);
+    }
+}

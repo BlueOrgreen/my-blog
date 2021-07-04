@@ -1,0 +1,38 @@
+/* -------  初始化  ------- */
+body,html {
+    width: 100%;
+    height: 100%;
+}
+
+#index {
+    display: 'flex';
+    flex-direction: column;
+    .moon,.night{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: -1;
+    }
+    .moon {
+        background: url('./assets/assets/images/light.jpg') center;
+    }
+    .night {
+        background: url('./assets/assets/images/night.gif') center;
+    }
+}
+
+/* --------  按钮 初始化 -------- */
+button {
+    border: 0;
+    &:focus {
+		border: none;
+		outline: 0 !important;
+		outline-style: none;
+	}
+}
+
+/* ------ light 灯 -------- */
+
+
